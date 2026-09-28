@@ -1,0 +1,521 @@
+```html
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hinduismen – Instuderingsquiz</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f1ea;
+            color: #29251f;
+            line-height: 1.5;
+        }
+
+        header {
+            background: linear-gradient(135deg, #d97706, #b45309);
+            color: white;
+            text-align: center;
+            padding: 45px 20px;
+        }
+
+        header h1 {
+            margin: 0 0 10px;
+            font-size: 2.5rem;
+        }
+
+        header p {
+            margin: 0;
+            font-size: 1.1rem;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 30px auto 60px;
+            padding: 0 20px;
+        }
+
+        .intro {
+            background: white;
+            padding: 20px;
+            border-radius: 14px;
+            margin-bottom: 25px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+        }
+
+        .question {
+            background: white;
+            margin-bottom: 22px;
+            padding: 24px;
+            border-radius: 14px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+        }
+
+        .question h2 {
+            font-size: 1.15rem;
+            margin-top: 0;
+            margin-bottom: 18px;
+        }
+
+        label {
+            display: block;
+            background: #f7f5f0;
+            border: 2px solid transparent;
+            padding: 12px 15px;
+            margin: 9px 0;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        label:hover {
+            background: #eee9df;
+            border-color: #d97706;
+        }
+
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        /* Knappen är dold från början */
+        .show-answers {
+            display: none;
+            width: 100%;
+            padding: 17px;
+            border: none;
+            border-radius: 12px;
+            background: #b45309;
+            color: white;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .show-answers:hover {
+            background: #92400e;
+        }
+
+        /* Meddelande som visas innan alla frågor är besvarade */
+        #progress {
+            text-align: center;
+            font-weight: bold;
+            margin: 20px 0;
+            color: #92400e;
+        }
+
+        #result {
+            display: none;
+            background: white;
+            padding: 25px;
+            margin-top: 25px;
+            border-radius: 14px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+        }
+
+        .correct {
+            color: #15803d;
+            font-weight: bold;
+        }
+
+        .wrong {
+            color: #b91c1c;
+            font-weight: bold;
+        }
+
+        .answer-box {
+            margin-top: 10px;
+            padding: 12px;
+            background: #ecfdf5;
+            border-left: 5px solid #16a34a;
+            border-radius: 6px;
+            color: #29251f;
+        }
+
+        .wrong-answer {
+            background: #fef2f2;
+            border-left: 5px solid #dc2626;
+        }
+
+        footer {
+            text-align: center;
+            color: #666;
+            padding: 25px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Hinduismen</h1>
+    <p>Instuderingsquiz</p>
+</header>
+
+<div class="container">
+
+    <div class="intro">
+        <h2>Testa dina kunskaper!</h2>
+        <p>
+            Välj det alternativ du tror är rätt på varje fråga.
+            När du har svarat på alla frågor kommer knappen
+            för att visa resultatet att dyka upp.
+        </p>
+    </div>
+
+    <form id="quiz">
+
+        <div class="question">
+            <h2>1. Varför ser hinduismen så olika ut på olika platser?</h2>
+
+            <label><input type="radio" name="q1" value="A"> A. Hinduismen har en enda central ledare som bestämmer olika lokala regler.</label>
+            <label><input type="radio" name="q1" value="B"> B. Den har funnits länge och har anpassats till lokala traditioner.</label>
+            <label><input type="radio" name="q1" value="C"> C. Alla hinduer använder olika religioner samtidigt.</label>
+            <label><input type="radio" name="q1" value="D"> D. Hinduismen har bara funnits i några hundra år.</label>
+        </div>
+
+        <div class="question">
+            <h2>2. Vilka är centrala tankar inom hinduismen?</h2>
+
+            <label><input type="radio" name="q2" value="A"> A. Brahman, atman, karma, återfödelse och samsara.</label>
+            <label><input type="radio" name="q2" value="B"> B. Endast tro på en gud och ett enda jordeliv.</label>
+            <label><input type="radio" name="q2" value="C"> C. Att alla människor måste leva på exakt samma sätt.</label>
+            <label><input type="radio" name="q2" value="D"> D. Att religionen inte har några tankar om livet efter döden.</label>
+        </div>
+
+        <div class="question">
+            <h2>3. Hur hänger brahman och atman ihop?</h2>
+
+            <label><input type="radio" name="q3" value="A"> A. Brahman är en gud som bara finns i tempel.</label>
+            <label><input type="radio" name="q3" value="B"> B. Atman är namnet på hinduernas heliga byggnad.</label>
+            <label><input type="radio" name="q3" value="C"> C. Brahman är världssjälen och atman är den individuella själen.</label>
+            <label><input type="radio" name="q3" value="D"> D. De betyder exakt samma sak och används aldrig på olika sätt.</label>
+        </div>
+
+        <div class="question">
+            <h2>4. Hur fungerar lagen om karma?</h2>
+
+            <label><input type="radio" name="q4" value="A"> A. Karma bestämmer vilken gud man måste tro på.</label>
+            <label><input type="radio" name="q4" value="B"> B. Karma är enbart något som händer under barndomen.</label>
+            <label><input type="radio" name="q4" value="C"> C. Karma betyder att alla människor får exakt samma nästa liv.</label>
+            <label><input type="radio" name="q4" value="D"> D. Handlingarna i livet påverkar hur man återföds.</label>
+        </div>
+
+        <div class="question">
+            <h2>5. Vad är moksha?</h2>
+
+            <label><input type="radio" name="q5" value="A"> A. En hinduisk vårfest.</label>
+            <label><input type="radio" name="q5" value="B"> B. Befrielsen från återfödelsens kretslopp.</label>
+            <label><input type="radio" name="q5" value="C"> C. Ett tempel där hinduer ber.</label>
+            <label><input type="radio" name="q5" value="D"> D. Ett annat namn för karma.</label>
+        </div>
+
+        <div class="question">
+            <h2>6. Vilka är tre vägar som kan leda till moksha?</h2>
+
+            <label><input type="radio" name="q6" value="A"> A. Handlingarnas väg, kärlekens väg och kunskapens väg.</label>
+            <label><input type="radio" name="q6" value="B"> B. Krigarens väg, kungens väg och prästens väg.</label>
+            <label><input type="radio" name="q6" value="C"> C. Tempelvägen, flodvägen och festvägen.</label>
+            <label><input type="radio" name="q6" value="D"> D. Barnets väg, vuxnas väg och ålderdomens väg.</label>
+        </div>
+
+        <div class="question">
+            <h2>7. Vilken av dessa är en helig hinduisk skrift?</h2>
+
+            <label><input type="radio" name="q7" value="A"> A. Bhagavadgita.</label>
+            <label><input type="radio" name="q7" value="B"> B. Iliaden.</label>
+            <label><input type="radio" name="q7" value="C"> C. Koranen.</label>
+            <label><input type="radio" name="q7" value="D"> D. Bibeln.</label>
+        </div>
+
+        <div class="question">
+            <h2>8. Hur förklarar många hinduer att det finns så många olika gudar?</h2>
+
+            <label><input type="radio" name="q8" value="A"> A. Gudarna representerar olika sidor av brahman och har olika uppgifter.</label>
+            <label><input type="radio" name="q8" value="B"> B. Varje hindu måste skapa en egen gud.</label>
+            <label><input type="radio" name="q8" value="C"> C. Gudarna är alla olika religioner.</label>
+            <label><input type="radio" name="q8" value="D"> D. Det finns många gudar eftersom hinduismen saknar heliga skrifter.</label>
+        </div>
+
+        <div class="question">
+            <h2>9. Vilken gud brukar beskrivas som bevararen?</h2>
+
+            <label><input type="radio" name="q9" value="A"> A. Shiva.</label>
+            <label><input type="radio" name="q9" value="B"> B. Ganesha.</label>
+            <label><input type="radio" name="q9" value="C"> C. Vishnu.</label>
+            <label><input type="radio" name="q9" value="D"> D. Brahma.</label>
+        </div>
+
+        <div class="question">
+            <h2>10. Varför är många hinduer vegetarianer?</h2>
+
+            <label><input type="radio" name="q10" value="A"> A. För att kött är förbjudet i alla hinduiska skrifter.</label>
+            <label><input type="radio" name="q10" value="B"> B. För att alla levande varelser anses ha en själ och livet är heligt.</label>
+            <label><input type="radio" name="q10" value="C"> C. För att hinduer inte får använda eld.</label>
+            <label><input type="radio" name="q10" value="D"> D. För att vegetarianism alltid leder direkt till moksha.</label>
+        </div>
+
+        <div class="question">
+            <h2>11. Vad kallas hinduernas heliga byggnad?</h2>
+
+            <label><input type="radio" name="q11" value="A"> A. Synagoga.</label>
+            <label><input type="radio" name="q11" value="B"> B. Moské.</label>
+            <label><input type="radio" name="q11" value="C"> C. Tempel.</label>
+            <label><input type="radio" name="q11" value="D"> D. Katedral.</label>
+        </div>
+
+        <div class="question">
+            <h2>12. Varför anses kor vara heliga?</h2>
+
+            <label><input type="radio" name="q12" value="A"> A. De anses vara fredliga och ger människor många nyttiga saker.</label>
+            <label><input type="radio" name="q12" value="B"> B. De anses vara gudar som bor i alla tempel.</label>
+            <label><input type="radio" name="q12" value="C"> C. De kan enligt hinduismen inte dö.</label>
+            <label><input type="radio" name="q12" value="D"> D. Alla hinduer äger minst en ko.</label>
+        </div>
+
+        <div class="question">
+            <h2>13. Vad händer traditionellt vid en hinduisk begravning?</h2>
+
+            <label><input type="radio" name="q13" value="A"> A. Kroppen begravs alltid under ett tempel.</label>
+            <label><input type="radio" name="q13" value="B"> B. Kroppen kremeras och askan kan spridas i en flod.</label>
+            <label><input type="radio" name="q13" value="C"> C. Kroppen sparas i hemmet.</label>
+            <label><input type="radio" name="q13" value="D"> D. Kroppen skickas till ett annat land.</label>
+        </div>
+
+        <div class="question">
+            <h2>14. Vad är Diwali?</h2>
+
+            <label><input type="radio" name="q14" value="A"> A. En ljusfest som bland annat förknippas med Ramas återkomst.</label>
+            <label><input type="radio" name="q14" value="B"> B. En begravningsrit.</label>
+            <label><input type="radio" name="q14" value="C"> C. En meditationsteknik.</label>
+            <label><input type="radio" name="q14" value="D"> D. En av de fyra Vedaskrifterna.</label>
+        </div>
+
+        <div class="question">
+            <h2>15. Vad firas under Holi?</h2>
+
+            <label><input type="radio" name="q15" value="A"> A. En vinterhögtid till Brahmas ära.</label>
+            <label><input type="radio" name="q15" value="B"> B. En vårfest som bland annat förknippas med Krishna.</label>
+            <label><input type="radio" name="q15" value="C"> C. Början på ett nytt kast.</label>
+            <label><input type="radio" name="q15" value="D"> D. En ceremoni där pojkar börjar skolan.</label>
+        </div>
+
+        <div class="question">
+            <h2>16. Vad är det hinduiska kastsystemet?</h2>
+
+            <label><input type="radio" name="q16" value="A"> A. Ett system där människor delas in i olika sociala grupper.</label>
+            <label><input type="radio" name="q16" value="B"> B. Ett system som bestämmer vilken gud man ska be till.</label>
+            <label><input type="radio" name="q16" value="C"> C. En samling heliga texter.</label>
+            <label><input type="radio" name="q16" value="D"> D. Ett sätt att meditera.</label>
+        </div>
+
+        <div class="question">
+            <h2>17. Vilka är daliter?</h2>
+
+            <label><input type="radio" name="q17" value="A"> A. En grupp präster som leder hinduiska tempel.</label>
+            <label><input type="radio" name="q17" value="B"> B. En grupp gudar inom hinduismen.</label>
+            <label><input type="radio" name="q17" value="C"> C. Människor som historiskt har stått utanför kastsystemet.</label>
+            <label><input type="radio" name="q17" value="D"> D. Hinduer som bara firar Holi.</label>
+        </div>
+
+        <div id="progress">
+            Du har svarat på 0 av 17 frågor.
+        </div>
+
+        <!-- Knappen visas först när alla frågor är besvarade -->
+        <button
+            type="button"
+            id="showAnswersButton"
+            class="show-answers"
+            onclick="showAnswers()">
+            Visa svar och resultat
+        </button>
+
+    </form>
+
+    <div id="result"></div>
+
+</div>
+
+<footer>
+    Hinduismen – instuderingsquiz
+</footer>
+
+
+<script>
+
+const totalQuestions = 17;
+
+/* Rätta svar */
+const answers = {
+    q1: "B",
+    q2: "A",
+    q3: "C",
+    q4: "D",
+    q5: "B",
+    q6: "A",
+    q7: "A",
+    q8: "A",
+    q9: "C",
+    q10: "B",
+    q11: "C",
+    q12: "A",
+    q13: "B",
+    q14: "A",
+    q15: "B",
+    q16: "A",
+    q17: "C"
+};
+
+/* Förklaringar till rätt svar */
+const explanations = {
+    q1: "Hinduismen har funnits länge och har anpassats till olika lokala religiösa traditioner.",
+    q2: "Centrala tankar är bland annat brahman, atman, karma, återfödelse och samsara.",
+    q3: "Brahman är världssjälen och atman är den individuella själen.",
+    q4: "Karma innebär att ens handlingar påverkar hur man återföds.",
+    q5: "Moksha innebär att man befrias från återfödelsens kretslopp.",
+    q6: "De tre vägarna är handlingarnas väg, kärlekens väg och kunskapens väg.",
+    q7: "Bhagavadgita är en av hinduismens kända heliga texter.",
+    q8: "Många hinduer ser gudarna som olika sidor av brahman.",
+    q9: "Vishnu brukar beskrivas som bevararen.",
+    q10: "Många hinduer tänker att alla levande varelser har en själ och att livet är heligt.",
+    q11: "Hinduernas heliga byggnader kallas tempel.",
+    q12: "Kor ses som heliga bland annat eftersom de är fredliga och ger människor många nyttiga saker.",
+    q13: "Vid en traditionell hinduisk begravning kremeras kroppen och askan kan spridas i en flod.",
+    q14: "Diwali är en ljusfest som bland annat firar Ramas återkomst.",
+    q15: "Holi är en vårfest som bland annat förknippas med Krishna.",
+    q16: "Kastsystemet delar historiskt in människor i olika sociala grupper.",
+    q17: "Daliter har historiskt stått utanför det traditionella kastsystemet."
+};
+
+
+/*
+    Den här funktionen körs varje gång användaren
+    väljer ett svar.
+*/
+document.querySelectorAll('input[type="radio"]').forEach(function(radio) {
+
+    radio.addEventListener("change", function() {
+
+        let answered = 0;
+
+        for (let i = 1; i <= totalQuestions; i++) {
+
+            const selected = document.querySelector(
+                'input[name="q' + i + '"]:checked'
+            );
+
+            if (selected) {
+                answered++;
+            }
+        }
+
+        const progress = document.getElementById("progress");
+        const button = document.getElementById("showAnswersButton");
+
+        progress.textContent =
+            "Du har svarat på " + answered + " av " +
+            totalQuestions + " frågor.";
+
+        /*
+            Visa knappen först när ALLA frågor
+            har ett valt svar.
+        */
+        if (answered === totalQuestions) {
+
+            button.style.display = "block";
+
+            progress.textContent =
+                "Alla frågor är besvarade! Du kan nu se ditt resultat.";
+
+        } else {
+
+            button.style.display = "none";
+        }
+
+    });
+
+});
+
+
+function showAnswers() {
+
+    let score = 0;
+
+    let html = `
+        <h2>Resultat</h2>
+    `;
+
+    for (let i = 1; i <= totalQuestions; i++) {
+
+        const questionName = "q" + i;
+
+        const selected = document.querySelector(
+            'input[name="' + questionName + '"]:checked'
+        );
+
+        const correctAnswer = answers[questionName];
+
+        if (selected.value === correctAnswer) {
+
+            score++;
+
+            html += `
+                <p class="correct">
+                    Fråga ${i}: ✓ Rätt!
+                </p>
+
+                <div class="answer-box">
+                    <strong>Rätt svar: ${correctAnswer}</strong><br>
+                    ${explanations[questionName]}
+                </div>
+            `;
+
+        } else {
+
+            html += `
+                <p class="wrong">
+                    Fråga ${i}: ✗ Fel.
+                </p>
+
+                <div class="answer-box wrong-answer">
+                    <strong>Du svarade: ${selected.value}</strong><br>
+                    <strong>Rätt svar: ${correctAnswer}</strong><br>
+                    ${explanations[questionName]}
+                </div>
+            `;
+        }
+    }
+
+    const percentage = Math.round(
+        (score / totalQuestions) * 100
+    );
+
+    html = `
+        <h2>Du fick ${score} av ${totalQuestions} rätt!</h2>
+        <p>Resultat: ${percentage}%</p>
+        <hr>
+    ` + html;
+
+    const result = document.getElementById("result");
+
+    result.innerHTML = html;
+    result.style.display = "block";
+
+    result.scrollIntoView({
+        behavior: "smooth"
+    });
+}
+
+</script>
+
+</body>
+</html>
+```
